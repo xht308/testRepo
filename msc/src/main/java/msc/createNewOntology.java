@@ -11,6 +11,7 @@ public class createNewOntology {
 		OWLOntology o;
 		try {
 			o = man.createOntology(); 
+			System.out.println(o);
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
