@@ -3,19 +3,24 @@ package msc;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 
-public class classDeclaration {
+public class removeAxiom {
 
 	public static void main(String[] args) throws OWLException {
-		IRI IOR = IRI.create("http://owl.api.tutorial");
+		//Create an OWL Ontology
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+		IRI IOR = IRI.create("http://owl.api.tutorial");
 		OWLOntology o = man.createOntology(IOR);
+		//Add buggy SubClassOf Axiom
 		OWLDataFactory df = o.getOWLOntologyManager().getOWLDataFactory();
-		OWLClass person = df.getOWLClass(IOR+"#Person");
+		OWLClass mann = df.getOWLClass(IOR+"#Man");
 		OWLClass woman = df.getOWLClass(IOR+"#Woman");
-		OWLDeclarationAxiom da = df.getOWLDeclarationAxiom(person);
-		OWLSubClassOfAxiom w_sub_p = df.getOWLSubClassOfAxiom(woman, person);
-		o.add(da);
-		o.add(w_sub_p);
+		OWLSubClassOfAxiom m_sub_w = df.getOWLSubClassOfAxiom(mann, woman);
+		o.add(m_sub_w);
+		//Print Ontology
+		System.out.println(o);
+		//Remove Axiom
+		o.remove(m_sub_w);
+		//Print result
 		System.out.println(o);
 
 	}
