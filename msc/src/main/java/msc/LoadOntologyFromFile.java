@@ -11,7 +11,7 @@ public class LoadOntologyFromFile {
 
 	public static void main(String[] args) {
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
-		File OWLFile = new File("D:\\OneDrive - 温州肯恩大学\\%Traceability Summer Project 2021%\\TraceLinksFullVersion.rdf");
+		File OWLFile = new File("D:\\TraceLinksFullVersion.rdf");
 		OWLOntology o;
 		try {
 			o = man.loadOntologyFromOntologyDocument(OWLFile);
